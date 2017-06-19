@@ -10,7 +10,7 @@
   </style>
 </head>
 
-<body class='clear'>
+<body>
   <div id="nav" class='clear'>
     <ul class="fr">
       <li>导航链接一</li>
@@ -19,138 +19,152 @@
       <li>导航链接四</li>
     </ul>
   </div>
-
-  <div class="sidebar fr">
-    <div class="paragraph">
-      <h2>这里以后是一个侧栏,这是侧栏的标题</h2>
-      <form action="">
-        <legend>侧栏注册窗口标题</legend>
-        <label for="">请输入邮箱地址:</label>
-        <br />
-        <input type="text" value='这是一个文本输入框' />
-        <label for="">邮箱地址请按要求格式输入</label>
-        <br />
-        <label for="">请输入密码:</label>
-        <input type="text" value="这是一个文本输入框" />
-        <label for="">请重复输入密码:</label>
-        <input type="text" value="这是一个文本输入框" />
-        <br />
-        <label for="">密码为6-16位英文数字</label>
-        <br /><br />
-        <label for="">性别:</label>
-        <input type="radio" name="sex" value='male' id='male' />
-        <label for="male">男</label>
-        <input type="radio" name="sex" value='female' id='female' />
-        <label for="female">女</label>
-        <label for="city">城市:</label>
-        <select name="city" id="city">
+  <div id="wrap" class='clear'>
+    <div class="side fr">
+      <div class="paragraph sidebar">
+        <h2>这里以后是一个侧栏,这是侧栏的标题</h2>
+        <form action="">
+          <!--<legend>侧栏注册窗口标题</legend>-->
+          <label for="" class='label'>请输入邮箱地址</label>
+          <input type="text" value='这是一个文本输入框' class='input' />
+          <br />
+          <label for="" class="label"></label>
+          <label for="" class='hint input'>邮箱地址请按要求格式输入</label>
+          <br />
+          <label for="" class='label'>请输入密码</label>
+          <input type="text" value="这是一个文本输入框" class='input' />
+          <br />
+          <label for="" class='label'>请重复输入密码</label>
+          <input type="text" value="这是一个文本输入框" class='input' />
+          <br />
+          <label for="" class="label"></label>
+          <label for="" class='hint input'>密码为6-16位英文数字</label>
+          <br />
+          <label for="" class="label">性别</label>
+          <div class="input radio">
+            <input type="radio" name="sex" value='male' id='male' />
+            <label for="male">男</label>
+            <input type="radio" name="sex" value='female' id='female' />
+            <label for="female">女</label>
+          </div>
+          <br>
+          <label for="city" class='label '>城市</label>
+          <select name="city" id="city" class='input city'>
             <option value="北京" selected="selected">北京</option>
             <option value="上海">上海</option>
             <option value="广州">广州</option>
           </select>
-        <label for="">爱好:</label>
-        <input type="checkbox" name="hobby" value="运动" id="yundong" />
-        <label for="yundong">运动</label>
-        <input type="checkbox" name="hobby" value="艺术" id="yishu" />
-        <label for="yishu">艺术</label>
-        <input type="checkbox" name="hobby" value="科学" id="kexue" />
-        <label for="kexue">科学</label>
-        <label for="gerenmiaoshu">个人描述</label>
-        <textarea name="gerenmiaoshu" rows="2" cols="10" value="这是一个多行输入框,输入您的个人描述"></textarea>
-        <input type="submit" value="确认提交" />
-      </form>
+          <br>
+          <label for="" class='label '>爱好</label>
+          <div class="input hobby">
+            <input type="checkbox" name="hobby" value="运动" id="yundong" />
+            <label for="yundong">运动</label>
+            <input type="checkbox" name="hobby" value="艺术" id="yishu" />
+            <label for="yishu">艺术</label>
+            <input type="checkbox" name="hobby" value="科学" id="kexue" />
+            <label for="kexue">科学</label>
+          </div>
+          <br>
+
+          <label for="gerenmiaoshu" class='label '>个人描述</label>
+          <textarea name="gerenmiaoshu" rows="2" cols="10" value="这是一个多行输入框,输入您的个人描述" class='input describe'></textarea>
+          <br>
+          <input type="submit" value="确认提交" class='fullBtn'/>
+        </form>
+      </div>
     </div>
+
+
+    <div class="main">
+      <div class="paragraph article">
+        <h2>文章一级标题</h2>
+        <h3>文章二级标题</h3>
+        <address>文章作者</address>
+        <time>文章发表时间</time>
+        <p>这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落<a href="#">这里有一个链接</a>这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落</p>
+          <img src="img/img1.jpg" />
+          <p>这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落
+        </p>
+      </div>
+
+      <div class="paragraph article">
+        <h2>另一个文章标题</h2>
+        <h3>文章副标题</h3>
+        <address>文章作者</address>
+        <time>文章发表时间</time>
+        <p>
+          这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落
+        </p>
+        <img src="img/img1.jpg" />
+        <ul>
+          <li>列表项目一</li>
+          <li>列表项目二</li>
+          <li>列表项目三</li>
+
+        </ul>
+      </div>
+
+      <div class="paragraph picture" id="picture">
+        <h2>图片</h2>
+        <ul class='clear'>
+          <li class='fl'><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
+          <li class='fl'><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
+          <li class='fl'><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
+          <li class='fl'><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
+          <li class='fl'><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
+          <li class='fl'><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
+          <li class='fl'><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
+          <li class='fl'><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
+          <li class='fl'><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
+          <li class='fl'><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
+        </ul>
+
+      </div>
+
+      <div class="paragraph">
+        <h2>最后一篇文章一级标题</h2>
+        <h3>文章二级标题</h3>
+        <address>文章作者</address>
+        <time>文章发表时间</time>
+        <p>下面是一个表格,给表格加了一个border="1"好让你看出是一个表格</p>
+        <table border="1">
+          <tr>
+            <th>表头</th>
+            <th>表头</th>
+            <th>表头</th>
+          </tr>
+          <tr>
+            <td>表内单元格</td>
+            <td>表内单元格</td>
+            <td><a href="#">操作</a></td>
+          </tr>
+          <tr>
+            <td>表内单元格</td>
+            <td>表内单元格</td>
+            <td><a href="#">操作</a></td>
+          </tr>
+          <tr>
+            <td>表内单元格</td>
+            <td>表内单元格</td>
+            <td><a href="#">操作</a></td>
+          </tr>
+          <tr>
+            <td>表内单元格</td>
+            <td>表内单元格</td>
+            <td><a href="#">操作</a></td>
+          </tr>
+          <tr>
+            <td>总计</td>
+            <td colspan="2">1000</td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+
   </div>
 
 
-  <div class="main">
-    <div class="paragraph">
-      <h2>文章一级标题</h2>
-      <h3>文章二级标题</h3>
-      <address>文章作者</address>
-      <time>文章发表时间</time>
-      <p>这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落<a href="#">这里有一个链接</a>这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落<br
-        />
-        <img src="img/img1.jpg" /><br /> 这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落
-      </p>
-    </div>
-
-    <div class="paragraph">
-      <h2>另一个文章标题</h2>
-      <h3>文章副标题</h3>
-      <address>文章作者</address>
-      <time>文章发表时间</time>
-      <p>
-        这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落这是一个很长的段落
-      </p>
-      <img src="img/img1.jpg" />
-      <ul>
-        <li>列表项目一</li>
-        <li>列表项目二</li>
-        <li>列表项目三</li>
-
-      </ul>
-    </div>
-
-    <div class="paragraph" id="picture">
-      <h2>图片</h2>
-      <ul>
-        <li><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
-        <li><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
-        <li><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
-        <li><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
-        <li><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
-        <li><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
-        <li><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
-        <li><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
-        <li><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
-        <li><span>好看的图片</span><img src="img/img1.jpg" alt="图片" /></li>
-      </ul>
-
-    </div>
-
-    <div class="paragraph">
-      <h2>最后一篇文章一级标题</h2>
-      <h3>文章二级标题</h3>
-      <address>文章作者</address>
-      <time>文章发表时间</time>
-      <p>下面是一个表格,给表格加了一个border="1"好让你看出是一个表格</p>
-      <table border="1">
-        <tr>
-          <th>表头</th>
-          <th>表头</th>
-          <th>表头</th>
-        </tr>
-        <tr>
-          <td>表内单元格</td>
-          <td>表内单元格</td>
-          <td><a href="#">操作</a></td>
-        </tr>
-        <tr>
-          <td>表内单元格</td>
-          <td>表内单元格</td>
-          <td><a href="#">操作</a></td>
-        </tr>
-        <tr>
-          <td>表内单元格</td>
-          <td>表内单元格</td>
-          <td><a href="#">操作</a></td>
-        </tr>
-        <tr>
-          <td>表内单元格</td>
-          <td>表内单元格</td>
-          <td><a href="#">操作</a></td>
-        </tr>
-        <tr>
-          <td>总计</td>
-          <td colspan="2">1000</td>
-        </tr>
-      </table>
-    </div>
-
-  </div>
-
-  
 
 
   <foot>版权所有©</foot>

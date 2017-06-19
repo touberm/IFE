@@ -15,6 +15,29 @@ body,h1,h2,h3,h4,h5,h6,p,ol,ul,li{margin:0;padding:0}
 #nav ul{padding-right:20px;}
 #nav ul li{line-height: 60px;float: left;margin-left:35px;color:#fff;cursor: pointer;}
 
-.sidebar{width:300px;}
+#wrap{padding:20px;background:#eee;}
+.paragraph{padding:20px;background: #fff;box-shadow: 2px 2px 4px #999;margin-bottom: 20px;}
 
-.main{margin-right:320px;}
+
+.side{width:400px;}
+.sidebar h2{font-size:20px;line-height: 40px;border-left:2px solid #888;padding-left:20px;}
+.sidebar form{padding-top:10px;}
+.sidebar form .label{width:120px;display: inline-block;font-size:16px;line-height: 40px;text-align: right;padding-right: 10px;}
+.sidebar form .input{width:200px;display: inline-block;font-size:16px;line-height: 24px;margin: 5px 0;padding-left:10px;}
+.sidebar form .input.hint{line-height: 30px;color:#999;padding:0;}
+.sidebar form .input.radio,.sidebar form .input.city,.sidebar form .input.hobby,.sidebar form .input.describe{padding-left:0;}
+.sidebar form .input.city{width:60px;height: 30px;}
+.sidebar form .input.describe{vertical-align: top;width:220px;}
+.sidebar form .fullBtn{width:360px;margin-top:20px;color:#fff;background:blue;border-radius: 6px;font:18px;line-height: 30px;border:none;outline: none;cursor: pointer;}
+
+.main{margin-right:420px;}
+.main .paragraph.article h2{font-size: 24px;line-height: 40px;}
+.main .paragraph.article h3{font-size:18px;line-height: 40px;color:#333;}
+.main .paragraph.article address,.main .paragraph.article time{display: inline-block;font-size:17px;line-height: 36px;color:#666;font-style: normal;padding-right: 10px;}
+.main .paragraph.article p{text-indent: 2em;font-size:16;line-height: 30px;padding-bottom: 20px;}
+.main .paragraph.article ul{list-style: none;padding:20px;}
+.main .paragraph.article ul li{font-size:16px;line-height: 30px;}
+.main .paragraph.picture h2{font-size: 24px;line-height: 40px;padding-bottom: 20px;}
+.main .paragraph.picture li{width:140px;padding:10px;list-style: none;border:1px solid #999;margin:10px;}
+.main .paragraph.picture li span{display: block;text-align: center;}
+.main .paragraph.picture li img{width:100%;}
