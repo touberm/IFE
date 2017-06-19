@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {margin: 0;padding: 0;}
+        .clear {zoom: 1;}
+        .clear:after {content: '';display: block;clear: both;}
+        .fl {float: left;}
+        .fr {float: right;}
+        #wrap,.name,.teamLogo,.introduce,.personLogo{border:1px solid #999;}
+        #wrap, .teamLogo,.personLogo{background:#eee;}
+
+        #wrap{padding:20px;}
+        .name{width:158px;padding:20px;background:#fff;}
+        .teamLogo{width:78px;height:78px;display: inline-block;text-align: center;line-height: 78px;}
+        .teamName{display: inline-block;text-align: center;line-height: 1em;vertical-align: top;}
+        .introduce{width:78px;padding:20px;background:#fff;}
+        .personLogo{width:78px;height:78px;text-align: center;line-height: 78px;margin-bottom: 20px;}
+        .personLogo.last{margin-bottom: 0;}
+        
+
+        .mainbody{margin:0 160px 0 240px;}
+    </style>
+</head>
+<body>
+    <div id="wrap" class='clear'>
+        <div class="fl name">
+            <div class="teamLogo">团队</div>
+            <span class='teamName'>团队名称</span>
+        </div>
+        <div class="fr introduce">
+            <div class="personLogo">个人</div>
+            <div class="personLogo">个人</div>
+            <div class="personLogo">个人</div>
+            <div class="personLogo last">个人</div>
+        </div>
+        <div class="mainbody">
+            <p>s </p>
+            <p>mainbody 需要放在left和right之后</p>
+        </div>
+        
+
+    </div>
+</body>
+
+</html>
