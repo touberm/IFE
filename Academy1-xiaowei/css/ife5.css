@@ -33,11 +33,22 @@ body,h1,h2,h3,h4,h5,h6,p,ol,ul,li{margin:0;padding:0}
 .main{margin-right:420px;}
 .main .paragraph.article h2{font-size: 24px;line-height: 40px;}
 .main .paragraph.article h3{font-size:18px;line-height: 40px;color:#333;}
-.main .paragraph.article address,.main .paragraph.article time{display: inline-block;font-size:17px;line-height: 36px;color:#666;font-style: normal;padding-right: 10px;}
+.main .paragraph address,.main .paragraph time{display: inline-block;font-size:17px;line-height: 36px;color:#666;font-style: normal;padding-right: 10px;}
 .main .paragraph.article p{text-indent: 2em;font-size:16;line-height: 30px;padding-bottom: 20px;}
 .main .paragraph.article ul{list-style: none;padding:20px;}
 .main .paragraph.article ul li{font-size:16px;line-height: 30px;}
 .main .paragraph.picture h2{font-size: 24px;line-height: 40px;padding-bottom: 20px;}
-.main .paragraph.picture li{width:140px;padding:10px;list-style: none;border:1px solid #999;margin:10px;}
-.main .paragraph.picture li span{display: block;text-align: center;}
+.main .paragraph.picture li{width:138px;padding:10px;list-style: none;border:1px solid #999;margin:10px;border:1px solid #999;}
+.main .paragraph.picture li span{display: block;text-align: center;padding-bottom: 10px;}
 .main .paragraph.picture li img{width:100%;}
+
+.main .information h2{font-size: 24px;line-height: 40px;}
+.main .information h3{font-size:18px;line-height: 40px;color:#333;}
+.main .information ol{padding: 20px;}
+.main .information ol li{font-size:16px;font-weight: bold;line-height: 30px;}
+.main .information table{width:100%;border-collapse: collapse;border:1px solid #dbdbdb;}
+.main .information table th{background:#333;color:#fff;text-align: left;font-size:14px;padding-left:5px;line-height:26px;}
+.main .information table td{font-size:14px;padding-left:5px;line-height:26px;}
+.main .information table tr.last td{font-size:14px;padding-left:5px;line-height:26px;background:#ccc;font-weight: bold;}
+
+footer{background:#000;color:#fff;text-align: center;font:normal 14px/60px 'Microsoft YaHei';padding-bottom: 20px;}
