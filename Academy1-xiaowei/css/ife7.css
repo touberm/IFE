@@ -1,0 +1,33 @@
+/*reset*/
+body,h1,h2,h3,h4,h5,h6,p,ol,ul,li,dl{margin:0;padding:0;}
+.clear:after{content: '';display: block;clear:both;}
+.fl{float: left;}
+.fr{float: right;}
+ul,ol,li{list-style: none;}
+a{text-decoration: none;}
+img{border:0;vertical-align: middle;}
+/*layout*/
+body{background:#666;}/*todo del*/
+#wrap{width:1280px;margin:0 auto;background:#fff;}
+#banner{position: relative;}
+#banner .main{position: absolute;width:100%;height:100%;top:0;left:0;}
+#feature img{display: block;margin:0 auto;}
+#feature ul li{width:25%;text-align: center;}
+#biglogo{background:#ececec;}
+#biglogo img{display: block;margin: 0 auto;}
+#biglogo h1{text-align: center;}
+#seek{position: relative;}
+#seek .main{position: absolute;top:0;left:0;width:100%;height:100%;text-align: center;}
+#seek .main form{width:1060px;margin:0 auto;}
+#seek .main form select,#seek .main form button{width:265px;}
+#active ul{width:1040px;margin:0 auto;}
+#active ul li{width:260px;text-align: center;}
+#summary{position: relative;}
+#summary .photo{position: relative;}
+#summary .photo .unit{position: absolute;top:0;left:0;width:100%;height:100%;}
+#summary .photo .unit.first{position: relative;}
+#summary .photo .unit .main{position: absolute;text-align: center;top:0;left:0;width:100%;height:100%;color:#fff;}
+#summary .photo .unit .main b{position: absolute;;right:0;top:50%;display: block;width:0px;height:0px;border: 24px solid transparent;border-right:24px solid #fff;}
+#summary .text{position: relative;}
+#summary .text .unit{position: absolute;top:0;left:0;width:100%;height: 100%;display: none;}
+#summary .text .unit.first{position: relative;width:430px;display: block;}
