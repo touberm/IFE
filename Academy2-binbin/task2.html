@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+  </head>
+<body>
+
+  <h3>污染城市列表</h3>
+  <ul id="list">
+<!--   
+    <li>第一名：福州（样例），10</li>
+      <li>第二名：福州（样例），10</li> -->
+  </ul>
+
+<script type="text/javascript">
+
+var data = [
+  ["北京", 90],
+  ["上海", 50],
+  ["福州", 10],
+  ["广州", 50],
+  ["成都", 90],
+  ["西安", 100]
+];
+var arrBack = [
+  ["北京", 90],
+  ["上海", 50],
+  ["福州", 10],
+  ["广州", 50],
+  ["成都", 90],
+  ["西安", 100]
+];/*备份数组*/
+
+(function () {
+  /*传统方法  */
+  /*
+  在注释下方编写代码
+  遍历读取aqiData中各个城市的数据
+  将空气质量指数大于60的城市显示到aqi-list的列表中
+  */
+  var obj = {};
+ 
+  var rank = 0;
+  var transfer = [];/*中转变量*/
+
+  /*插入排序*/
+  /*
+  * 适用于在已经排好序的数组中插入到相应的位置，以从小到大排序为例，扫描已经排好序的片段的每一项，如大于，则继续往后，直到他小于一项时，将其插入到这项的前面
+  */
+
+  /*冒泡排序*/
+  for(var i=0;i<data.length-1;i++){
+    for(var j=0;j<data.length-i-1;j++){
+      /*比较的是data[j]和data[j+1] 所以只需循环到data.length-1即可*/
+      if(data[j][1] < data[j+1][1]){
+        /*将最小的放到最后*/
+        transfer = data[j+1];
+        data[j+1] = data[j];
+        data[j] = transfer;
+      }
+    }
+  }
+
+
+  // console.log(data);
+  // var num = 0;
+  // var str = '' ;
+  // for(var i=0;i<data.length;i++){
+  //   if(data[i][1]>=60){
+  //     num++;
+  //     str += '<li>第'+num+'名: '+data[i][0]+' ,'+data[i][1]+'</li>';
+  //   }
+
+  // }
+  // var ul=document.getElementById('list');
+  // ul.innerHTML = str;
+  /*END 传统方法  */
+
+  /*filter sort 方法 IE9以下不支持*/
+
+  var newData = arrBack.filter(function(current){
+    return current[1] >= 60;
+  })
+  console.log('arrBack: '+arrBack)
+  console.log('FILTER: '+newData);
+  newData = newData.sort(function(a,b){return b[1]-a[1]});
+  console.log('SORT: '+ newData);
+  
+
+  var str2 = '';
+  for(var i = 0 ; i < newData.length; i ++){
+    str2 += '<li>第'+(i+1)+'名: '+newData[i][0]+' ,污染指数: '+newData[i][1]+' </li>';
+  }
+  var ul=document.getElementById('list');
+  ul.innerHTML = str2;
+
+})();
+
+</script>
+</body>
+</html>

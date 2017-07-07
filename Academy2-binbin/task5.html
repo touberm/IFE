@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body,
+    form,
+    ul,
+    li {
+      padding: 0;
+      margin: 0;
+    }
+
+    form {
+      width: 600px;
+      margin: 100px auto 10px;
+    }
+
+    #rIn {
+      margin-right: 20px;
+    }
+
+    #rOut {
+      margin-right: 20px;
+    }
+
+    #show {
+      width: 600px;
+      margin: 0 auto;
+    }
+
+    ul:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    #show ul {
+      width: 100%;
+    }
+
+    #show ul li {
+      background: lightseagreen;
+      display: inline-block;
+      margin-right: 5px;
+      border-radius: 2px 2px 0 0;
+      width: 20px;
+      vertical-align: bottom;
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+    <input type="text" name="" value="">
+    <button type='button' id="lIn">左侧进</button>
+    <button type='button' id="rIn">右侧进</button>
+    <button type='button' id="lOut">左侧出</button>
+    <button type='button' id="rOut">右侧出</button>
+    <button type="button" id="rank">排序</button>
+  </form>
+  <div id='show'>
+    <ul></ul>
+
+  </div>
+
+  <script>
+    init();
+
+    function init() {
+      var lIn = document.getElementById('lIn');
+      var rIn = document.getElementById('rIn');
+      var lOut = document.getElementById('lOut');
+      var rOut = document.getElementById('rOut');
+      var oUl = document.getElementsByTagName('ul')[0];
+      var oSort =document.getElementById('rank');
+
+      lIn.onclick = function () {
+        doIn('left');
+      }
+
+      lOut.onclick = function () {
+        doOut('left');
+      }
+
+      rIn.onclick = function () {
+        doIn('right');
+      }
+
+      rOut.onclick = function () {
+        doOut('right');
+      }
+
+      oUl.onclick = doDel;
+
+      oSort.onclick = reSort;
+
+    }
+
+
+
+    function getVal() {
+      /*获取input值，并返回*/
+      var oInp = document.getElementsByTagName('input')[0];
+      console.log(oInp.value);
+
+      return oInp.value == '' ? false : oInp.value;
+    }
+
+    function getFirst() {
+      /*获取左侧第一个元素,并返回该元素*/
+      var oUl = document.getElementsByTagName('ul')[0];
+      console.log(oUl.firstChild);
+      var firstNode = oUl.firstChild;
+
+      if (firstNode) {
+        /*是否存在第一个元素节点子元素  排除换行和空格的影响*/
+
+        while (firstNode.nodeType != 1) {
+          /*判断第一个节点的类型*/
+          firstNode = firstNode.nextSibling;
+          if (firstNode == null) {
+            /*若不存在.nextSibling 则 证明不存在元素子节点*/
+            return false;
+          }
+        }
+        return firstNode;
+      } else {
+        return false;
+      }
+    }
+
+    function getLast() {
+      /*类似于getFirst*/
+      var oUl = document.getElementsByTagName('ul')[0];
+      var lastNode = oUl.lastChild;
+      if (lastNode) {
+        while (lastNode.nodeType != 1) {
+          lastNode = lastNode.previousSibling;
+          if (lastNode == null) {
+            return false;
+          }
+        }
+        return lastNode;
+      } else {
+        return false;
+      }
+    }
+
+
+    function doIn(lr) {
+      /*添加函数 lr:'left'or'right'选择从左侧还是右侧加入*/
+      var val = getVal();
+      if (val) {
+        /*如果oval不等于空，执行函数，否则 do nothing*/
+        if (val >= 10 && val <= 100) {
+          var oUl = document.getElementsByTagName('ul')[0];
+          var oLi = document.createElement('li');
+
+          oLi.style.height = val + 'px';
+
+          if (lr == 'left') {
+            var oFirst = getFirst();
+            if (oFirst) {
+              oUl.insertBefore(oLi, oFirst);
+            } else {
+              /*如果不存在子节点*/
+              oUl.appendChild(oLi);
+            }
+          } else {
+            /*lr == 'right*/
+            oUl.appendChild(oLi);
+          }
+
+          /*点击后清除val值*/
+          var oInp = document.getElementsByTagName('input')[0];
+          oInp.value = '';
+          oInp.focus();
+        } else {
+          alert('请输入数字:值在10-100之间');
+          var oInp = document.getElementsByTagName('input')[0];
+          oInp.value = '';
+          oInp.focus();
+        }
+      }
+    }
+
+    function doOut(lr) {
+      /*移除函数 lr:'left'or'right'选择从左侧还是右侧加入*/
+      var oUl = document.getElementsByTagName('ul')[0];
+      var delH = '';
+      if (lr == 'left') {
+        var oFirst = getFirst();
+        if (oFirst) {
+          delH = parseInt(oFirst.style.height);
+          alert('删除的高度为: ' + delH);
+          oUl.removeChild(oFirst);
+        } else {
+          alert('没有内容可以删除!');
+        }
+      } else {
+        /*lr == 'right'*/
+        var oLast = getLast();
+        if (oLast) {
+          delH = parseInt(oLast.style.height);
+          alert('删除的高度为: ' + delH);
+          oUl.removeChild(oLast);
+        } else {
+          alert('没有内容可以删除!');
+        }
+      }
+    }
+
+    function doDel(e) {
+      var e = e || window.event;
+      var oUl = document.getElementsByTagName('ul')[0];
+      var delH = parseInt(e.target.style.height);
+      /*event.target 触发事件的元素*/
+      alert('删除内容的高度为: ' + delH);
+      oUl.removeChild(e.target);
+    }
+
+    function reSort() {
+      /*排序 ，改变li的height即可*/
+      var oUl = document.getElementsByTagName('ul')[0];
+      var aLi = oUl.getElementsByTagName('li');
+      var transfer = '';/*过渡变量*/
+
+      for(var i=0;i<aLi.length-1;i++){
+        for(var j=0;j<aLi.length-i-1;j++){
+          if(parseInt(aLi[j].style.height) > parseInt(aLi[j+1].style.height)){
+            transfer = aLi[j].style.height;
+            aLi[j].style.height = aLi[j+1].style.height;
+            aLi[j+1].style.height = transfer;
+          }
+        }
+      }
+
+    }
+
+
+    function turnInt(obj){
+      /*将字符串转为int*/
+      return parseInt(obj);
+    }
+  </script>
+</body>
+
+</html>

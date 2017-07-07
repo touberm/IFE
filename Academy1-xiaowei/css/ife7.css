@@ -1,5 +1,5 @@
 /*reset*/
-body,h1,h2,h3,h4,h5,h6,p,ol,ul,li,dl{margin:0;padding:0;}
+body,h1,h2,h3,h4,h5,h6,p,ol,ul,li,dl,button{margin:0;padding:0;}
 .clear:after{content: '';display: block;clear:both;}
 .fl{float: left;}
 .fr{float: right;}
@@ -11,17 +11,66 @@ body{background:#666;}/*todo del*/
 #wrap{width:1280px;margin:0 auto;background:#fff;}
 #banner{position: relative;}
 #banner .main{position: absolute;width:100%;height:100%;top:0;left:0;}
-#feature img{display: block;margin:0 auto;}
-#feature ul li{width:25%;text-align: center;}
 #biglogo{background:#ececec;}
-#biglogo img{display: block;margin: 0 auto;}
-#biglogo h1{text-align: center;}
 #seek{position: relative;}
 #seek .main{position: absolute;top:0;left:0;width:100%;height:100%;text-align: center;}
 #seek .main form{width:1060px;margin:0 auto;}
 #seek .main form select,#seek .main form button{width:265px;}
+#active{padding:100px 0;background: #f7f7f7;}
 #active ul{width:1040px;margin:0 auto;}
 #active ul li{width:260px;text-align: center;}
+
+
+
+
+
+/*header*/
+#header .logo{font-size:20px;line-height: 60px;height:60px;margin-left:60px;padding-left: 40px;background:url('../img/task1-7/logo.png') no-repeat left center;}
+#header .menu{height:60px;}
+#header .menu ul li{font-size:14px;line-height: 52px;height:52px;padding:4px 5px 0;margin:0 15px;cursor: pointer;}
+#header .menu ul li.on{color:#ea6f6e;border-bottom: 4px solid #ea6f6e;}
+#header .menu ul li:hover{color:#ea6f6e;border-bottom: 4px solid #ea6f6e;}
+#header .menu .login{font-size:14px;color:#ea6f6e;line-height: 60px;height: 60px;margin:0 40px 0 10px;padding-left:20px;background: url('../img/task1-7/login.png') no-repeat left center;cursor: pointer;}
+
+/*banner*/
+#banner .main h2{font-size:48px;color:#fff;padding:230px 0 10px 100px;}
+#banner .main p{font-size: 20px;color:#fff;line-height: 30px;padding-left:108px;}
+#banner .main button{font-size:30px;width:330px;height:65px;line-height:65px;color:#fff;background:#e74f4d;border:none;outline: none;margin:60px 0 0 110px;cursor: pointer;}
+
+/*feature*/
+#feature img{display: block;margin:45px auto;width:42px;height:42px;}
+#feature ul li{width:320px;text-align: center;padding-bottom: 65px;}
+#feature ul li p{font-size:12px;color:#8d8d8d;width:160px;padding:0 78px 15px 80px;border-right:2px solid #bbb;}
+#feature ul li.last p{padding:0 80px 15px 80px;border-right:0;}
+
+/*biglogo*/
+#biglogo img{display: block;margin: 0 auto;width:91px;height:91px;padding:80px 0 45px;}
+#biglogo h1{text-align: center;font-size:46px;color:#a1a1a1;font-weight: normal;padding-bottom: 80px;}
+
+/*seek*/
+#seek .main h2{color:#fff;font-size:20px;padding-top:50px;}
+#seek .main span{display: block;width:30px;height:2px;background: #fff;margin:10px  auto 20px;}
+#seek .main p{font-size:12px;color:#fff;padding-bottom: 50px;}
+#seek .main form select{width:210px;height:40px;padding:0 15px;margin-right:30px;outline:none;border:none;color:#a8aaaa;}
+#seek .main form select:hover{border:1px solid #be4e48;}
+#seek .main form select option{font-size:12px;color:#a8aaaa;border:1px solid #be4e48;line-height: 40px;}
+#seek .main form button{background:#be4e48;color:#fff;width:240px;height:40px;border:none;font-size: 16px;letter-spacing: 10px;}
+
+/*active*/
+/**
+* #active{padding:100px 0;background: #f7f7f7;}
+* #active ul{width:1040px;margin:0 auto;}
+* #active ul li{width:260px;text-align: center;}
+*/
+#active ul li{height:410px;position: relative;}
+#active ul li img{display: block;width:202px;border:1px solid #dadada;padding:12px 8px;margin: 0 auto;position: absolute;left:20px;top:0;height:310px;transition:all 0.6s ease-in-out;}
+#active ul li h2{width:260px;font-size:13px;color:#636464;line-height: 40px;height: 40px;position: absolute;bottom:30px;left:0;transition:all 0.6s ease-in-out;}
+#active ul li p{width:260px;font-size: 12px;color:#989898;line-height: 30px;height: 30px;position: absolute;bottom:0px;left:0;transition:all 0.6s ease-in-out;}
+#active ul li:hover img{top:70px;}
+#active ul li:hover h2{bottom:370px;font-size:20px;color:#323333;letter-spacing: 20px;text-indent: 20px;}/*增加letter-spacing，最后一个字后也会有间距，可以增加padding-left解决不能剧终的问题,完美解决方案，增加text-indent同letter-spacing一样的数值*/
+#active ul li:hover p{bottom:350px;}
+
+/*summary*/
 #summary{position: relative;}
 #summary .photo{position: relative;}
 #summary .photo .unit{position: absolute;top:0;left:0;width:100%;height:100%;}
@@ -30,4 +79,63 @@ body{background:#666;}/*todo del*/
 #summary .photo .unit .main b{position: absolute;;right:0;top:50%;display: block;width:0px;height:0px;border: 24px solid transparent;border-right:24px solid #fff;}
 #summary .text{position: relative;}
 #summary .text .unit{position: absolute;top:0;left:0;width:100%;height: 100%;display: none;}
-#summary .text .unit.first{position: relative;width:430px;display: block;}
+#summary .text .unit.first{position: relative;width:290px;display: block;}
+#summary .photo .unit .main{padding-top:130px;}
+#summary .photo .unit .main h4{font-size:46px;line-height: 50px;font-weight: normal;}
+#summary .photo .unit .main h3{font-size:120px;line-height:120px;font-weight: normal;}
+#summary .photo .unit .main p{font-size:22px;line-height:30px;padding-top:30px;}
+#summary .photo .unit .main span{display:block;font-size:18px;line-height:20px;padding-top:20px;}
+#summary .text .unit{padding:160px 70px 0;}
+#summary .text .unit h3{color:#323333;font-size:20px;padding-bottom: 20px;text-align: center;}
+#summary .text .unit h3 span{color:#e74f4d;}
+#summary .text .unit p{font-size:12px;color:#b0b0b0;line-height: 30px;text-align: justify;}
+#summary .text .unit a{padding:10px 30px;display:block;margin:40px auto 0;color:#e6797c;border:1px solid #e6797c;width: 70px;text-align: center;}
+#summary .text .footer{padding-top:25px;text-align: center;}
+#summary .text .footer li{display: inline-block;width:12px;height:12px;background-image: url('../img/task1-7/summary_text.png');background-repeat: no-repeat;background-position: right center;margin-right: 20px;}
+#summary .text .footer li.last{margin-right:0;}
+#summary .text .footer li.active{background-position: left center;}
+
+/*article*/
+#article ul{width:100%;}
+#article ul li{width:425px;height:521px;text-align: center;}
+#article ul li.third{width:430px;position: relative;}
+#article ul li.third span.arrow{display: block;width:0;height:0;border:24px solid transparent;border-left:24px solid #fff;position: absolute;left:0;top:248px;}
+#article ul li.first{background:#e74f4d;color:#fff;}
+#article ul li h2{padding-top:170px;font-size:20px;padding-bottom: 10px;}
+#article ul li h3{font-size:20px;}
+#article ul li hr{width:30px;border:none;height:2px;background-color: #fff;margin:25px auto;}
+#article ul li.second hr{background-color: #000;}
+#article ul li a{display: block;width:160px;height:40px;border:1px solid #fff;text-align: center;font:normal 20px/40px 'Microsoft YaHei';color:#fff;margin:0 auto;}
+#article ul li.second a{color:#e74f4d;border:1px solid #e74f4d;}
+
+/*join*/
+#join{padding:110px 135px 160px;text-align: center;}
+#join>h2{color:#323333;font-size:20px;}
+#join>hr{width:30px;height:2px;background:#e74f4d;border:none;margin:10px auto 15px;}
+#join>p{color:#c9c9c9;font-size:12px;}
+#join .main{padding:100px 0 0;}
+#join .main ul{width:320px;}
+#join .main ul li h3{color:#666160;font-size: 14px;text-align: left;padding-bottom: 15px;}
+#join .main ul li p{color:#9d9b9a;font-size:14px;text-align: left;line-height: 20px;text-overflow: ellipsis;width:100%;overflow: hidden;}
+#join .main ul li a{height:10px;padding-left:15px;background:url('../img/task1-7/join_down.png') no-repeat left center;color:#9d9b9a;vertical-align: top;display: block;width:50px;margin:10px 0 25px auto;cursor: pointer;}
+#join .main ul li a small{vertical-align: middle;line-height: 6px;display: block;}
+#join .main form{width:640px;}
+#join .main form input{width:295px;height:40px;border:none;outline: none;margin-bottom: 15px;background: #ededef;padding-left:15px;font-size:12px;color:#838080;}
+#join .main form textarea{width:610px;padding:10px 15px;height: 100px;background: #ededef;resize: none;border:none;outline: none;font-size:12px;color:#838080;margin-bottom: 15px;}
+#join .main form button{height:40px;font:normal 14px/40px 'Microsoft YaHei';color:#323333;text-align: center;display: block;border:none;outline: none;background: #ededef;width:640px;}
+
+/*contact*/
+#contact{background:#32363e;padding:90px 0 70px;color:#fff;text-align: center;}
+#contact>h2{font:normal 20px/20px 'Mircosoft YaHei';padding-bottom: 10px;}
+#contact>p{font:normal 12px/20px 'Mircosoft YaHei';}
+#contact form{width:510px;height:40px;margin:0 auto;padding-top:30px;}
+#contact form input{width:420px;font:normal 14px/40px 'Microsoft YaHei';color:#cfcfcf;border:none;outline: none;padding:0 0 0 10px;}
+#contact form button{font:bold 18px/40px '黑体';color:#fff;background: #6f7178;width:80px;height: 40px;border: none;outline: none;}
+#contact ul{text-align: center;padding-top:40px;}
+#contact ul li{display: inline-block;width:30px;height:20px;margin-right:25px;}
+#contact ul li.last{margin-right:0;}
+
+/*footer*/
+#footer{height: 56px;background:#303039;}
+#footer div{padding:27px 0 0 100px;color:#fff;font-size: 12px;}
+#footer a{color:#fff;font-size: 12px;padding:27px 40px 0 0;}
