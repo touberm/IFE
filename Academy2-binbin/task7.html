@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{margin:0;padding: 0;text-align: center;}
+    div{border:1px solid #666;display: inline-block;margin: 20px;padding:10px;background:#fff;}
+    .level-3{width:20px;height:40px;}
+    #wrap{margin:20px auto;}
+    form{text-align: center;padding-top:60px;text-indent: 20px;cursor: pointer; }
+    form button{margin-right:20px;background:darkorange;}
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div class="level-1">
+      <div class="level-2">
+        <div class="level-3"></div>
+        <div class="level-3"></div>
+      </div>
+      <div class="level-2">
+        <div class="level-3"></div>
+        <div class="level-3"></div>
+      </div>
+    </div>
+    <div class="level-1">
+      <div class="level-2">
+        <div class="level-3"></div>
+        <div class="level-3"></div>
+      </div>
+      <div class="level-2">
+        <div class="level-3"></div>
+        <div class="level-3"></div>
+      </div>
+    </div>
+  </div>
+  <form>
+    <button type='button' id="preOrder">正序遍历</button>
+    <button type='button' id="inOrder">中序遍历</button>
+    <button type='button' id="postOrder">后序遍历</button>
+  </form>
+
+  <script>
+    var oWrap =document.getElementById('wrap');
+    oWrap.onOff = false;
+    oWrap.num = 0;
+    var arr = [];
+
+
+    function getNode(obj){
+      /*获取节点*/
+      if(obj){
+        /*如果节点存在*/
+        if(obj.nodeType != 1){
+          /*不是元素节点时,查找其nextSibling*/
+          return getNode(obj.nextSibling);
+        }else{
+          /*如果nodeType == 1 直接返回该元素*/
+          return obj;
+        }
+      }else{
+        return false;
+      }
+      return null;
+    }
+
+    
+    function preOrder(obj){
+      /*前序遍历*/
+      if(obj){
+        arr.push(obj);
+        /*直接增加根节点*/
+        preOrder(getNode(obj.firstChild));
+        /*添加左子节点*/
+        preOrder(getNode(getNode(obj.firstChild).nextSibling));
+        /*添加右子节点*/
+      }
+    }
+
+    function inOrder(obj){
+      /*中序遍历*/
+      if(obj){
+        inOrder(getNode(obj.firstChild));
+        arr.push(obj);
+        inOrder(getNode(getNode(obj.firstChild).nextSibling));
+      }
+    }
+
+    function postOrder(obj){
+      /*后序遍历*/
+      if(obj){
+        postOrder(getNode(obj.firstChild));
+        postOrder(getNode(getNode(obj.firstChild).nextSibling));
+        arr.push(obj);
+      }
+    }
+    
+    function traverse(arr){
+      /*遍历数组*/
+      oWrap.onOff = true
+      oWrap.timer = setInterval(function(){
+          
+        if(oWrap.prev){
+          oWrap.prev.style.background = '#fff';
+        }
+        arr[oWrap.num].style.background = 'darkorange';
+        oWrap.prev = arr[oWrap.num];
+        oWrap.num++;
+        if(oWrap.num >= arr.length){
+          /*结束*/
+          clearInterval(oWrap.timer);
+          setTimeout(function() {
+            /*结束遍历后将最后一个元素的颜色改为白色*/
+            arr[arr.length - 1].style.background = '#fff';
+            arr.length = 0;
+            console.log('clear');
+            console.log(arr);
+          }, 500);
+          oWrap.num = 0;
+          oWrap.onOff = false;
+          
+        }
+      },500)
+      
+    }
+
+
+    function init(){
+      var preO =document.getElementById('preOrder');
+      var inO =document.getElementById('inOrder');
+      var postO =document.getElementById('postOrder');
+
+      
+
+
+      preO.onclick = function(){
+        if(oWrap.onOff == false){
+          preOrder(oWrap);
+          traverse(arr);
+          console.log(arr);
+        }
+      }
+      inO.onclick =function(){
+        if(oWrap.onOff == false){
+          
+          inOrder(oWrap);
+          traverse(arr);
+          console.log(arr);
+        }
+      }
+      postO.onclick =function(){
+        if(oWrap.onOff == false){
+          postOrder(oWrap);
+          traverse(arr);
+          console.log(arr);
+        }
+      }
+
+    }
+
+    init();
+
+    
+
+
+    
+    
+  </script>
+</body>
+</html>
+
