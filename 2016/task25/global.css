@@ -1,0 +1,7 @@
+body,p{margin:0;padding:0;}
+body{font:normal 14px/20px 'Microsoft YaHei';}
+#wrap{width:200px;border:1px dashed #888;padding:5px;}
+p,.body{padding-left:24px;}
+p{cursor: pointer;height:20px;background-size: 20px 20px;background-image: url('./img/folder_close.png');background-repeat: no-repeat;background-position: 0 0;border-bottom: 1px dashed #888;}
+.unit{border-left:1px dashed #888;}
+.body{display: none;}
