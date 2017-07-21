@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  body,
+  form,
+  input,
+  button,
+  p{margin:0;padding:0;}
+  .clear:after{content: '';display: block;clear:both;}
+  .fl{float: left;}
+  .fr{float: right;}
+  form{margin:60px;}
+  form>div{width:600px;margin:0 auto 20px;}
+  form>div input{width:500px;font:normal 20px/40px 'Mircosoft YaHei';outline: none;border-width: 1px;border-color:#aaa;border-radius: 6px;}
+  form>div button{width:80px;font:normal 20px/40px 'Mircosoft YaHei';outline: none;}
+  form>p.hint{width:600px;margin: 0 auto;font:normal 20px/40px 'Mircosoft YaHei';color:#aaa;}
+
+  </style>
+</head>
+<body>
+  <form>
+    <div class='clear'>
+      <input type="text" name="name" value="a" class='fl'>
+      <button type="button" class='fr'>检测</button>
+    </div>
+    <p class="hint">必填,长度为4-16个字符</p>
+  </form>
+  <script>
+    var form = document.forms[0];
+    var name1 = document.getElementsByTagName('input')[0];
+   
+    var btn = document.getElementsByTagName('button')[0];
+    var hint = document.getElementsByTagName('p')[0];
+    console.log(name1.value);
+    btn.onclick = function(){
+      var con = name1.value;
+      var strlen = 0;/* 统计字符长度 英文为1 汉字为2 */
+      if(!con){
+        hint.innerHTML = '姓名不能为空';
+        hint.style.color = 'red';
+        name1.style.borderColor = 'red';
+      }else{
+        for(var i=0;i<con.length;i++){
+          if(con.charCodeAt(i) > 255){
+            strlen += 2;
+          }else{
+            strlen++;
+          }
+        }
+
+        if(strlen < 4){
+          hint.innerHTML = '长度为4-16个字符,当前长度为:' + strlen ;
+          hint.style.color = 'red';
+          name1.style.borderColor = 'red';
+        }else if(strlen > 12){
+          hint.innerHTML = '长度为4-16个字符,当前长度为:' + strlen ;
+          hint.style.color = 'red';
+          name1.style.borderColor = 'red';
+        }else{
+          hint.innerHTML = '通过' ;
+          hint.style.color = 'green';
+          name1.style.borderColor = 'green';
+        }
+      }
+
+
+    }
+
+
+
+  </script>
+</body>
+</html>
