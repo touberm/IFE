@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{margin:0;padding: 0;text-align: center;}
+    div{border:1px solid #666;display: inline-block;margin: 10px;padding:5px;background:#fff;}
+    .level-3{height:40px;}
+    #wrap{margin:20px auto;}
+    #wrap div{cursor: pointer;}
+    form{text-align: center;padding-top:60px;text-indent: 20px;cursor: pointer; }
+    form button{margin-right:20px;background:darkorange;}
+  </style>
+</head>
+<body>
+  <div id="wrap">wrap
+    <div class="level-1">touber
+      <div class="level-2">marilyn
+        <div class="level-3">manson</div>
+        <div class="level-3">jeson</div>
+      </div>
+      <div class="level-2">stanstion
+        <div class="level-3">wazixiaoji</div>
+        <div class="level-3">brad</div>
+      </div>
+    </div>
+    <div class="level-1">pitt
+      <div class="level-2">angelia
+        <div class="level-3">jolie</div>
+        <div class="level-3">sieinna</div>
+      </div>
+      <div class="level-2">miller
+        <div class="level-3">Tom</div>
+        <div class="level-3">cruise</div>
+      </div>
+    </div>
+  </div>
+  <form>
+    <button type='button' id="preOrder">正序遍历</button>
+    <button type='button' id="inOrder">中序遍历</button>
+    <button type='button' id="postOrder">后序遍历</button>
+    <br><br>
+    <label for="search">查找内容</label>
+    <input type="text" name="" value="" id='search'>
+    <br>
+    
+    <br>
+    <input type="text" name="" value="" id='contentOfAdd'>
+    <button id="add" type="button">Addition</button>
+    <button id="del" type="button">删除</button>
+  </form>
+
+  <script>
+    var oWrap =document.getElementById('wrap');
+    oWrap.onOff = false;
+    oWrap.num = 0;
+    var arr = [];
+
+    console.log(oWrap.innerText);
+
+
+    function getNode(obj){
+      /*获取节点*/
+      if(obj){
+        /*如果节点存在*/
+        if(obj.nodeType != 1){
+          /*不是元素节点时,查找其nextSibling*/
+          return getNode(obj.nextSibling);
+        }else{
+          /*如果nodeType == 1 直接返回该元素*/
+          return obj;
+        }
+      }else{
+        return false;
+      }
+      return null;
+    }
+
+    function trim(str) { 
+      /*去除两端空格*/
+      return str.replace(/(^\s*)|(\s*$)/g, ""); 
+    } 
+
+    function doMatch(){
+      /*查找匹配输入框内容,并返回匹配对象*/
+      var oSearch =document.getElementById('search').value;
+      console.log('oSearch: ' + oSearch);
+      if(oSearch){
+        for(var i=0;i<arr.length;i++){
+          if(trim(arr[i].firstChild.nodeValue) == oSearch){
+            /*去掉空格在再匹配*/
+            return arr[i];
+          }
+        }
+        console.log('匹配不成功,输入内容有误');
+        return false;
+      }
+
+    }
+    
+    function preOrder(obj){
+      /*前序遍历*/
+      if(obj){
+        arr.push(obj);
+        /*直接增加根节点*/
+        preOrder(getNode(obj.firstChild));
+        /*添加左子节点*/
+        preOrder(getNode(getNode(obj.firstChild).nextSibling));
+        /*添加右子节点*/
+      }
+    }
+
+    function inOrder(obj){
+      /*中序遍历*/
+      if(obj){
+        inOrder(getNode(obj.firstChild));
+        arr.push(obj);
+        inOrder(getNode(getNode(obj.firstChild).nextSibling));
+      }
+    }
+
+    function postOrder(obj){
+      /*后序遍历*/
+      if(obj){
+        postOrder(getNode(obj.firstChild));
+        postOrder(getNode(getNode(obj.firstChild).nextSibling));
+        arr.push(obj);
+      }
+    }
+    
+    function traverse(arr){
+      /*遍历数组*/
+      oWrap.onOff = true;
+      var oMatch =doMatch();
+      /*TODO if(oMatch){}如果oMatch存在才执行*/
+      oWrap.timer = setInterval(function(){
+          
+        if(oWrap.prev){
+          oWrap.prev.style.background = '#fff';
+        }
+        arr[oWrap.num].style.background = 'darkorange';
+        oWrap.prev = arr[oWrap.num];
+        
+        if(arr[oWrap.num] == oMatch){
+           /*如果当前对象是匹配对象*/
+          clearInterval(oWrap.timer);
+          setTimeout(function() {
+            /*结束遍历后将最后一个元素的颜色改为白色*/
+            oWrap.prev.style.background = '#fff';
+            oMatch.style.background = 'lightgreen';
+            arr.length = 0;
+            console.log('clear');
+            console.log(arr);
+          }, 500);
+          oWrap.num = 0;
+          oWrap.onOff = false;
+        }
+        oWrap.num++;
+        if(oWrap.num >= arr.length){
+          /*结束*/
+          clearInterval(oWrap.timer);
+          setTimeout(function() {
+            /*结束遍历后将最后一个元素的颜色改为白色*/
+            arr[arr.length - 1].style.background = '#fff';
+            arr.length = 0;
+            console.log('clear');
+            console.log(arr);
+          }, 500);
+          oWrap.num = 0;
+          oWrap.onOff = false;
+          
+        }
+      },500)
+    }
+
+    function doDel(obj){
+      /* 节点删除 */
+      if(obj){
+        var parent = obj.parentNode;
+        parent.removeChild(obj);
+      }else{
+        alert('请先选中节点');
+      }
+    }
+
+    function init(){
+      var preO =document.getElementById('preOrder');
+      var inO =document.getElementById('inOrder');
+      var postO =document.getElementById('postOrder');
+      var del = document.getElementById('del');
+      var wrap = document.getElementById('wrap');
+      var prev,now;/* 前一个点击对象 和当前对象 */
+      var coa = document.getElementById('contentOfAdd');
+      var add = document.getElementById('add');
+
+      preO.onclick = function(){
+        if(oWrap.onOff == false){
+          preOrder(oWrap);
+          traverse(arr);
+          console.log(arr);
+        }
+      }
+      inO.onclick =function(){
+        if(oWrap.onOff == false){
+          
+          inOrder(oWrap);
+          traverse(arr);
+          console.log(arr);
+        }
+      }
+      postO.onclick =function(){
+        if(oWrap.onOff == false){
+          postOrder(oWrap);
+          traverse(arr);
+          console.log(arr);
+        }
+      }
+
+      wrap.onclick = function(ev){
+        /* 点击,事件委托 */
+        var ev = ev || window.event;
+        now = ev.target;
+        now.style.background = '#a4a';
+        if(prev){
+          prev.style.background = '#fff';
+        }
+        prev = now;
+
+      }
+
+      del.onclick = function(){
+        /* 删除 */
+        doDel(now);
+        now = null;
+      }
+
+      add.onclick = function(){
+        /* 添加 */
+        if(now){
+          var input = coa.value;
+          if(input){
+            var newChild=document.createElement('div');
+            var textChild = document.createTextNode(input);
+            newChild.appendChild(textChild);
+            now.appendChild(newChild);
+          }
+        }
+      }
+
+    }
+
+    init();
+
+    
+
+
+    
+    
+  </script>
+</body>
+</html>
+
