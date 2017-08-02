@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="wrap">
+    <a href="" id = 'aaa'>1</a>
+    <p>2</p>
+    <div class="body">3</div>
+
+
+
+  </div>
+  <script>
+    var node = [];
+    function getNode(obj){
+      if(obj){
+        if(obj.nextSibling){
+          node.push(obj.nextSibling);
+          getNode(obj.nextSibling);
+        }
+      }
+    }
+
+    function init(){
+      var wr = document.getElementById('aaa');
+      getNode(wr);
+      for(var i=0;i<node.length;i++){
+        console.log(i+' : ');
+        console.log(node[i]);
+      }
+
+    }
+    init();
+  </script>
+</body>
+</html>

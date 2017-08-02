@@ -3,36 +3,47 @@ function haveSubmenu(obj){
     /* 存在兄弟元素 */
     if(obj.nextSibling.nodeType != 1){
       /*节点类型 != 1  */
+      console.log('节点类型!=1 继续查找nextSibling')
       haveSubmenu(obj.nextSibling);
       /* 继续查找 */
     }else{
       /* 节点类型 == 1 */
       if(obj.nextSibling.className == 'body'){
         /* class == 'body' */
-        console.log('className: ' + obj.nextSibling.className);
-        console.log( obj.nextSibling);
+        console.log('class= body 返回结果')
+        console.log(obj.nextSibling);
         return obj.nextSibling;
       }else{
-         haveSubmenu(obj.nextSibling);
+        console.log('class!= body 继续查找nextsibling')
+        haveSubmenu(obj.nextSibling);
       }
     }
 
   }else{
     /* 如果不存在下一个兄弟元素 ==> 没有子菜单 */
+    console.log('不存在nextsibling,返回false')
     return false;
   }
 }
+// console.log(haveSubmenu(document.getElementsByTagName('p')[0].nextSibling));
+
+// haveSubmenu(document.getElementsByTagName('p')[0].nextSibling).style.background = 'block';
+// var aa = haveSubmenu(document.getElementsByTagName('p')[0].nextSibling);
+// console.log(123124);
+// console.log(aa);
 
 function init(){
   var oP = document.getElementsByTagName('p');
+  var pBody ={};
   for(var i=0;i<oP.length;i++){
     oP[i].index = i;
     oP[i].onclick = function(){
-      console.log('30: ' +haveSubmenu(oP[0]));
-      if(haveSubmenu(this)){
-       
-        console.log('that: '+ oP[this.index]);
-        haveSubmenu(this).style.display = 'block';
+      
+      pBody[this.index] = haveSubmenu(oP[this.index]);
+      console.log(pBody[this.index]);
+      if(pBody[this.index]){
+        
+        pBody[this.index].style.display = 'block';
       }
     }
   }
@@ -40,14 +51,9 @@ function init(){
 
 
 function init2(){
-  var oP = document.getElementsByTagName('p');
-  for(var i=0;i<oP.length;i++){
-    oP[i].index = i;
-    
-    oP[i].onclick = function(){
-      console.log('init2: ' +this.index)
-    }
-  }
+  var oP = document.getElementsByTagName('p')[0];
+  var aaa = haveSubmenu(oP);
+  console.log(aaa);
 }
 
-init();
+// init2();
