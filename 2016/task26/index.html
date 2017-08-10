@@ -16,6 +16,10 @@
   <div class="control fl">
     <div class="data">
       <h2>Information Panel</h2>
+      <div class="message">
+        <!-- <p class="">Ship1 destroy Success!</p>
+        <p>Ship1 create Success!</p> -->
+      </div>
     </div>
     <div class="command">
       <h2>Control Panel</h2>
@@ -26,6 +30,7 @@
           <button class="play" type="button">运行</button>
           <button class="pause" type="button">暂停</button>
           <button class="destroy" type="button">自爆</button>
+          <span class='del'>×</span>
         </li>
         <li>
           <span class='serial'>飞船2</span>
@@ -33,6 +38,7 @@
           <button class="play" type="button">运行</button>
           <button class="pause" type="button">暂停</button>
           <button class="destroy" type="button">自爆</button>
+          <span class='del'>×</span>
         </li>
         <li>
           <span class='serial'>飞船3</span>
@@ -40,13 +46,15 @@
           <button class="play" type="button">运行</button>
           <button class="pause" type="button">暂停</button>
           <button class="destroy" type="button">自爆</button>
+          <span class='del'>×</span>
         </li>
         <li>
           <span class='serial'>飞船4</span>
           <button class="create" type="button">生成</button>
           <button class="play" type="button">运行</button>
-          <button class="pause active" type="button">暂停</button>
+          <button class="pause" type="button">暂停</button>
           <button class="destroy" type="button">自爆</button>
+          <span class='del'>×</span>
         </li>
         <li class='add'><button type="button">＋</button></li>
       </ul>
@@ -56,25 +64,37 @@
     <div class="pathway first">
       <div class="airship">
         <div class="ship"><img src="./img/airship.png" alt=""></div>
-        <div class="energy"><small>100</small></div>
+        <div class="energy">
+          <small>100</small>
+          <div class="bar"></div>
+        </div>
       </div>
     </div>
     <div class="pathway second">
       <div class="airship">
         <div class="ship"><img src="./img/airship.png" alt=""></div>
-        <div class="energy"><small>100</small></div>
+        <div class="energy">
+          <small>100</small>
+          <div class="bar"></div>
+        </div>
       </div>
     </div>
     <div class="pathway third">
       <div class="airship">
         <div class="ship"><img src="./img/airship.png" alt=""></div>
-        <div class="energy"><small>100</small></div>
+        <div class="energy">
+          <small>100</small>
+          <div class="bar"></div>
+        </div>
       </div>
     </div>
     <div class="pathway fourth">
       <div class="airship">
         <div class="ship"><img src="./img/airship.png" alt=""></div>
-        <div class="energy"><small>100</small></div>
+        <div class="energy">
+          <small>100</small>
+          <div class="bar"></div>
+        </div>
       </div>
     </div>
     <div class="earth"></div>
