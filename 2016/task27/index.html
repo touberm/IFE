@@ -1,0 +1,119 @@
+<!-- 
+ * @description:
+ * @author:
+ * @update:
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" type="" href="./global.css">
+</head>
+<body>
+  <div class="control fl">
+    <div class="data">
+      <h2>Information Panel</h2>
+      <div class="message">
+        <!-- <p class="">Ship1 destroy Success!</p>
+        <p>Ship1 create Success!</p> -->
+      </div>
+    </div>
+    <div class="command">
+      <h2>Control Panel</h2>
+      <form name='shipStyle'>
+        <label for="">动力系统:</label>
+        <input type="radio" name="power" value='{"speed":30,"expend":5}'><span class='power'>速度30px/s,消耗5%/s</span>
+        <input type="radio" name="power" value='{"speed":50,"expend":7}'><span class='power'>速度50px/s,消耗7%/s</span>
+        <input type="radio" name="power" value='{"speed":80,"expend":9}'><span class='power'>速度90px/s,消耗9%/s</span>
+        <br>
+        <label for="">恢复系统:</label>
+        <input type="radio" name="reply" value="2"><span class='reply'>普通型:2%/s</span>
+        <input type="radio" name="reply" value="4"><span class='reply'>加强型:4%/s</span>
+        <input type="radio" name="reply" value="6"><span class='reply'>极速型:6%/s</span>
+      </form>
+      <ul>
+        <li>
+          <span class='serial'>飞船1</span>
+          <button class="create" type="button">生成</button>
+          <button class="play" type="button">运行</button>
+          <button class="pause" type="button">暂停</button>
+          <button class="destroy" type="button">自爆</button>
+          <span class='del'>×</span>
+        </li>
+        <li>
+          <span class='serial'>飞船2</span>
+          <button class="create" type="button">生成</button>
+          <button class="play" type="button">运行</button>
+          <button class="pause" type="button">暂停</button>
+          <button class="destroy" type="button">自爆</button>
+          <span class='del'>×</span>
+        </li>
+        <li>
+          <span class='serial'>飞船3</span>
+          <button class="create" type="button">生成</button>
+          <button class="play" type="button">运行</button>
+          <button class="pause" type="button">暂停</button>
+          <button class="destroy" type="button">自爆</button>
+          <span class='del'>×</span>
+        </li>
+        <li>
+          <span class='serial'>飞船4</span>
+          <button class="create" type="button">生成</button>
+          <button class="play" type="button">运行</button>
+          <button class="pause" type="button">暂停</button>
+          <button class="destroy" type="button">自爆</button>
+          <span class='del'>×</span>
+        </li>
+        <li class='add'><button type="button">＋</button></li>
+      </ul>
+    </div>
+  </div>
+  <div class="view fr">
+    <div class="pathway first">
+      <div class="airship">
+        <div class="ship"><img src="./img/airship.png" alt=""></div>
+        <div class="energy">
+          <small>100</small>
+          <div class="bar"></div>
+        </div>
+      </div>
+    </div>
+    <div class="pathway second">
+      <div class="airship">
+        <div class="ship"><img src="./img/airship.png" alt=""></div>
+        <div class="energy">
+          <small>100</small>
+          <div class="bar"></div>
+        </div>
+      </div>
+    </div>
+    <div class="pathway third">
+      <div class="airship">
+        <div class="ship"><img src="./img/airship.png" alt=""></div>
+        <div class="energy">
+          <small>100</small>
+          <div class="bar"></div>
+        </div>
+      </div>
+    </div>
+    <div class="pathway fourth">
+      <div class="airship">
+        <div class="ship"><img src="./img/airship.png" alt=""></div>
+        <div class="energy">
+          <small>100</small>
+          <div class="bar"></div>
+        </div>
+      </div>
+    </div>
+    <div class="earth"></div>
+  </div>
+  
+
+  <script src="./ship.js"></script>
+  <script src="./commond.js"></script>
+  <script src="./common.js"></script>
+</body>
+</html>

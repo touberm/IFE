@@ -1,0 +1,68 @@
+/* 
+ * @description:
+ * @author:
+ * @update:
+ */
+
+/* reset */
+body,
+h2,
+ul,
+li,
+a,
+p,
+button,
+form,
+input{margin:0;padding:0;}
+clear:after{content: '';display: block;clear:both;}
+.fl{float: left;}
+.fr{float:right;}
+/* layout */
+body{background:url('./img/night.jpg') no-repeat;background-size: cover;font-family: 'Microsoft YaHei';}
+
+
+/* view */
+.view{width:700px;position: relative;padding:50px;height:700px;}
+.view .pathway{border:1px dashed #ccc;border-radius: 50%;position: absolute;}
+.view .pathway.first{width:700px;height:700px;top:50px;left:50px;}
+.view .pathway.second{width:550px;height:550px;top:125px;left:125px;}
+.view .pathway.third{width:400px;height:400px;top:200px;left:200px;}
+.view .pathway.fourth{width:250px;height:250px;top:275px;left:275px;}
+.view .earth{position: absolute;width:150px;height:150px;top:325px;left:325px;background:url('./img/earth2.png') no-repeat center;background-size: 140%;border-radius: 50%;overflow: hidden;}
+/* 飞船 */
+.view .pathway .airship{width:66px;position: absolute;top:-16.5px;height:54px;display: none;}
+.view .pathway.first .airship{left:317px;transform-origin: center 367.5px;}
+.view .pathway.second .airship{left:242px;transform-origin: center 291.5px;}
+.view .pathway.third .airship{left:167px;transform-origin: center 216.5px;}
+.view .pathway.fourth .airship{left:92px;transform-origin: center 141.5px;}
+.view .pathway .airship .ship{width:66px;height:33px;overflow: hidden;position: relative;}
+.view .pathway .airship .ship img{position: absolute;display: block;width:66px;height:66px;top:-16.5px;}
+.view .pathway .airship .energy{color:#fff;font-size:12px;text-align: center;margin-top:5px;position: relative;width:66px;height:16px;}
+.view .pathway .airship .energy small{position: absolute;top:0;left:0;display: block;width:66px;height:16px;z-index: 2;}
+.view .pathway .airship .energy .bar{position: absolute;top:0;left:0;background:#181;border:1px solid #181;z-index: 1;border-radius: 2px;width:64px;height:14px;}
+
+
+/*　control */
+.control{width:600px;}
+.control .data,.control .command{border:2px solid #ccc;border-radius: 6px;margin-bottom:20px;}
+.control .data{height:400px;overflow: auto;margin-top:20px;}
+.control h2{color:#fff;text-align: center;border-bottom:1px dashed #ccc;}
+.control .command ul{width:600px;list-style: none;padding-top:20px;}
+.control .command ul li {width:100%;color:#fff;height:40px;text-align: center;display: none;}
+.control .command ul li span.serial{display: inline-block;font:normal 18px/40px 'Microsoft Yahei';padding-right:20px;}
+.control .command ul li button{font-size:14px;color:#fff;line-height: 28px;display: inline-block;background-color: #155;border:none;outline: none;height:28px;padding:0 15px;border-radius: 4px;margin-right:20px;cursor:pointer;}
+.control .command ul li.add{padding:10px 0 0 ;display:block;}
+.control .command ul li.add button{width:200px;}
+.control .command ul li button.destroy{background:#d00;}
+.control .command ul li button.active{background:#3a0;cursor:default;}
+.control .command ul li .del{font-size:16px;cursor:pointer;border:1px solid #fff;line-height: 24px;display: inline-block;height:26px;padding:0 15px;border-radius: 4px;}
+.control .data .message{color:#fff;padding:10px;}
+.control .data .message p{font-size: 16px;line-height: 20px;}
+.control .data .message p.waring{color:#d00;}
+.control .data .message p.success{color:#181;}
+.control .command form{color:#fff;padding:10px;font-size:12px;line-height: 30px;}
+.control .command form label{width:51px;height:30px;}
+.control .command form input{line-height: 30px;height:30px;display: inline-block;vertical-align: middle;}
+.control .command form span.power{width:130px;display: inline-block;}
+.control .command form span.reply{width:130px;display: inline-block;}
+
