@@ -82,6 +82,9 @@ Commond.addMethod('order',function(){
       }
       /* 刷新开关状态 */
       obj.F5();
+      /* todo del 2row */
+      /* info1.create(com,first.current); */
+      
     }
   }
   

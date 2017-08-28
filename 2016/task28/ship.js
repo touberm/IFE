@@ -19,6 +19,7 @@ Ship.prototype.status = null; /* 飞船状态 */
 Ship.prototype.exit = false;  /* 是否存在 */
 Ship.prototype.expend = 5;/* 每秒消耗能量 */
 Ship.prototype.gain = 2;/* 每秒获取的能量 */
+Ship.prototype.current = '';/* 当前状态 生成 运行 停止 摧毁 */
 /* 
 圆周长 C = 2*π*r
 圆弧长 L = n/360*2*π*r = n*π*r/180
@@ -28,21 +29,17 @@ unit = (20px) * 180 / (3.1415926 * radius)
 Ship.addMethod('create',function(){
   /* 创建飞船 */
   var shipStyle = getShipStyle();
-   console.log(shipStyle.power.speed);
-  console.log(shipStyle.reply);
   this.setAttr(shipStyle.power['speed'],shipStyle.power['expend'],shipStyle.reply);
-  console.log(this.arcLength);
-  console.log(this.expend);
-  console.log(this.gain); 
   clearInterval(this.timer);
   clearInterval(this.playEnergy);
   clearInterval(this.pauseEnergy);
   this.entity.style.display = 'block';
   this.status = 'pause';
   this.exit = true;
+  this.current = 'create';
   
 });
-Ship.addMethod('destroy',function(){
+Ship.addMethod('destroy',function(codeObj){
   /* 摧毁飞船 */
   var obj = this;
   clearInterval(this.timer);
@@ -55,20 +52,31 @@ Ship.addMethod('destroy',function(){
   this.setEnergy(obj);
   this.setColor(obj);
   this.entity.style.transform = 'rotate('+ this.rotate +'deg)';
+  this.current = 'destroy';
+  /* 删除tr */
+  synth[codeObj.id].info.create(codeObj,this.current);
 });
-Ship.addMethod('receive',function(commond){
+Ship.addMethod('receive',function(commond,codeObj){
+  
   if(commond == 'create'){
     this.create();
   }else if(commond == 'destroy'){
-    this.destroy();
+    this.destroy(codeObj);
 
   }else if(commond == 'play'){
-    this.play();
+    this.play(codeObj);
 
   }else if(commond == 'pause'){
-    this.pause();
-
+    this.pause(codeObj);
   }
+  console.log(codeObj);
+
+  /* 接收命令后,初始化面板 */
+  console.log(synth[codeObj.id].ship);
+  console.log(synth[codeObj.id].info);
+  synth[codeObj.id].info.create(codeObj,this.current);
+  /* first.current的设置延时生效,因此应该在延时函数之后调用该函数 */
+  
 });
 Ship.addMethod('doPlay',function(obj){
   /* play中循环内容 obj为Ship本身 */
@@ -87,7 +95,7 @@ Ship.addMethod('play',function(){
     obj.doPlay(obj);
   },50);
   obj.energyChange(obj);
-  
+  this.current = 'play';
 });
 Ship.addMethod('pause',function(){
   var obj = this;
@@ -97,6 +105,7 @@ Ship.addMethod('pause',function(){
   clearInterval(this.pauseEnergy);
   this.status = 'pause';
   obj.energyChange(obj);
+  this.current = 'pause';
   
 });
 Ship.addMethod('energyChange',function(obj){

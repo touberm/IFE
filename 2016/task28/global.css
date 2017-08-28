@@ -68,5 +68,8 @@ body{background:url('./img/night.jpg') no-repeat;background-size: cover;font-fam
 
 .control .info{height:200px;}
 .control .info table{color:#fff;border-collapse: collapse;border:1px solid #fff;width:540px;margin:10px auto;}
-.control .info table th,.control .info table td{border:1px solid #fff;}
+.control .info table th,.control .info table td{border:1px solid #fff;text-align: center;}
+.control .info table td.yellow{color:#dc0;}
+.control .info table td.red{color:#d00;}
+.control .info table td.green{color:#060;}
 

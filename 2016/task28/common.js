@@ -67,18 +67,18 @@ function getShipStyle(){
   var obj = {};
   obj.power = JSON.parse(form['power'].value);
   obj.reply = form['reply'].value;
-  console.log(obj);
   return obj;
+  /*样式 {power: {speed: 30, expend: 5}, reply: "4"} */
 }
 
 function shipReceive(code){
   var code = code;
   var codeObj = adapter(code,true);
-  serial[codeObj.id].receive(codeObj.commond);
+  serial[codeObj.id].receive(codeObj.commond,codeObj);
 }
 
 function adapter(mes,rs){
-  /* 适配器函数 mes:接受参数 rs:接收true发送false */
+  /* 适配器函数 mes:接收参数 rs:接收true发送false */
   if(mes){
     if(rs){
       var codeObj = {};
@@ -162,8 +162,44 @@ var info2 = new Info();
 var info3 = new Info();
 var info4 = new Info();
 
+info1.tr = document.createElement('tr');
+info1.energyTd = document.createElement('td');
+info1.expendTd = document.createElement('td');
+info1.recoverTd = document.createElement('td');
+info1.currentTd = document.createElement('td');
+info1.currentEnergyTd = document.createElement('td');
+
+info2.tr = document.createElement('tr');
+info2.energyTd = document.createElement('td');
+info2.expendTd = document.createElement('td');
+info2.recoverTd = document.createElement('td');
+info2.currentTd = document.createElement('td');
+info2.currentEnergyTd = document.createElement('td');
+
+info3.tr = document.createElement('tr');
+info3.energyTd = document.createElement('td');
+info3.expendTd = document.createElement('td');
+info3.recoverTd = document.createElement('td');
+info3.currentTd = document.createElement('td');
+info3.currentEnergyTd = document.createElement('td');
+
+info4.tr = document.createElement('tr');
+info4.energyTd = document.createElement('td');
+info4.expendTd = document.createElement('td');
+info4.recoverTd = document.createElement('td');
+info4.currentTd = document.createElement('td');
+info4.currentEnergyTd = document.createElement('td');
+
+
+
+
+
+
+
 /* 综合 */
-var synth = [{'ship':first,'li':li1,'info':info1},{'ship':second,'li':li2,'info':info2},{'ship':third,'li':li3,'info':info3},{'ship':fourth,'li':li4,'info':info4}]
+var synth = [{'ship':first,'li':li1,'info':info1},{'ship':second,'li':li2,'info':info2},{'ship':third,'li':li3,'info':info3},{'ship':fourth,'li':li4,'info':info4}];
+
+
 
 /* 飞船序列号 */
 first.serial = 0;
@@ -211,7 +247,6 @@ li4.order();
 add.order();
 
 
-console.log(info1.tbody);
 
 
 
