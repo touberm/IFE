@@ -1,0 +1,6 @@
+body,form,input,button{margin:0;padding:0;}
+form{padding-top:100px;width:600px;margin:0 auto;}
+input{font-size: 16px;line-height: 30px;padding:0 10px;margin-right: 20px;height:30px;border:1px solid #333;outline: none;}
+button{font-size: 16px;line-height: 30px;height:32px;border:1px solid #333;display: inline-block;padding:0 10px;background: #0D3E5A;color:#fff;}
+.name{padding-right: 10px;display: inline-block;width:50px;}
+.hint{padding-left:60px;}
